@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎮 Juego de Memoria</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-brain"></i> Juego de Memoria</h1>
+      <p class="subtitle">Encuentra las parejas de frutas antes de que se acabe el tiempo</p>
+    </header>
+
+    <main>
+      <div class="game-info">
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Tiempo</span>
+              <span id="timer" class="stat-value">00:00</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-shoe-prints"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Movimientos</span>
+              <span id="moves" class="stat-value">0</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Puntuación</span>
+              <span id="score" class="stat-value">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="resetBtn" class="btn-reset">
+            <i class="fas fa-redo"></i> Reiniciar Juego
+          </button>
+          <button id="hintBtn" class="btn-hint">
+            <i class="fas fa-lightbulb"></i> Ayuda
+          </button>
+        </div>
+      </div>
+
+      <div class="difficulty">
+        <span class="difficulty-label">Dificultad:</span>
+        <div class="difficulty-buttons">
+          <button class="difficulty-btn active" data-level="easy">Fácil</button>
+          <button class="difficulty-btn" data-level="medium">Medio</button>
+          <button class="difficulty-btn" data-level="hard">Difícil</button>
+        </div>
+      </div>
+
+      <div id="gameBoard" class="board"></div>
+
+      <div class="instructions">
+        <h3><i class="fas fa-info-circle"></i> Instrucciones</h3>
+        <p>Haz clic en las cartas para revelarlas y encontrar las parejas iguales. 
+        Cada pareja encontrada aumenta tu puntuación. ¡Completa el juego en el menor tiempo posible!</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Creado con <i class="fas fa-heart"></i> por Linda Quispe</p>
+    </footer>
+  </div>
+
+  <div id="winModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <i class="fas fa-trophy"></i>
+        <h2>¡Felicidades!</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Has completado el juego de memoria</p>
+        <div class="final-stats">
+          <div class="final-stat">
+            <i class="fas fa-clock"></i>
+            <span>Tiempo: <strong id="final-time">00:00</strong></span>
+          </div>
+          <div class="final-stat">
+            <i class="fas fa-shoe-prints"></i>
+            <span>Movimientos: <strong id="final-moves">0</strong></span>
+          </div>
+          <div class="final-stat">
+            <i class="fas fa-star"></i>
+            <span>Puntuación: <strong id="final-score">0</strong></span>
+          </div>
+        </div>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <button id="playAgainBtn" class="btn-play-again">
+          <i class="fas fa-play-circle"></i> Jugar de Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
